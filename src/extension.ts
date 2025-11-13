@@ -24,6 +24,9 @@ export function activate(context: vscode.ExtensionContext) {
             if (file_name.slice(file_name.length - 4, file_name.length) == '.cpp') {
                 check = true;
             }
+             if (file_name.slice(file_name.length - 4, file_name.length) == '.hpp') {
+                check = true;
+            }
         }
         if (!check) {
             console.log(1234546);
