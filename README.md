@@ -33,3 +33,7 @@ Include Sorter - это расширение для VS Code, которое со
 
 ## Commit History
 
+* `0b5acf8e75972c6921d256e92a301858209404f4`: Comented on extension.ts
+* `be2b1699bb018a4fa6b7dd23c2a28e156363509e`: Added all other
+* `22a8df562f5c7e9c87bb306590459a952366532e`: Added check expansion. Added icon
+* `e5705c32838584e230fcf5d82801c9a02f7b13db`: includes sorting
