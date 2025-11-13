@@ -3,7 +3,8 @@
   "displayName": "Include Sorter",
   "description": "Include Sorter - упорядочивает ваши #include по Google C++ Style ",
   "version": "1.0.0",
-  "publisher": "Oleg", 
+  "publisher": "Oleg",
+  "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.105.0"
   },
@@ -11,10 +12,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:cpp",
-    "onLanguage:h",
-    "onLanguage:hpp",
-    "onLanguage:cxx"
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {

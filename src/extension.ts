@@ -2,8 +2,6 @@ import * as vscode from 'vscode';
 
 
 export function activate(context: vscode.ExtensionContext) {
-    console.log('Запустилось');
-    
     vscode.window.showInformationMessage('Приветствую Вас!');
 
     let disposable = vscode.commands.registerCommand('include-sorter.sortIncludes', () => {
@@ -12,6 +10,23 @@ export function activate(context: vscode.ExtensionContext) {
     
         if (!editor) {
             vscode.window.showWarningMessage('Нет файла где нужнно исправлять codestyle!');
+            return;
+        }
+
+        const file_name = editor.document.fileName;
+        let check = false;
+        if (file_name.length > 2) {
+            if (file_name.slice(file_name.length - 2, file_name.length) == '.h') {
+                check = true;
+            }
+        }
+        if (file_name.length > 4) {
+            if (file_name.slice(file_name.length - 4, file_name.length) == '.cpp') {
+                check = true;
+            }
+        }
+        if (!check) {
+            console.log(1234546);
             return;
         }
 
