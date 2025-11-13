@@ -1,5 +1,29 @@
 import * as vscode from 'vscode';
 
+function Check(editor : vscode.TextEditor): boolean {
+    /*
+       Проверяем расширение файла
+       Поддерживаются только .h, .cpp, .hpp
+    */
+    const file_name = editor.document.fileName;
+    let check = false;
+    if (file_name.length > 2) {
+        if (file_name.slice(file_name.length - 2, file_name.length) == '.h') {
+            check = true;
+        }
+    }
+    
+    if (file_name.length > 4) {
+        if (file_name.slice(file_name.length - 4, file_name.length) == '.cpp') {
+            check = true;
+        }
+        if (file_name.slice(file_name.length - 4, file_name.length) == '.hpp') {
+            check = true;
+        }
+    }
+    return check;
+}
+
 export function activate(context: vscode.ExtensionContext) {
     // Показываем приветственное сообщение при активации расширения
     vscode.window.showInformationMessage('Приветствую Вас!');
@@ -18,26 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
             return;
         }
 
-        /*
-           Проверяем расширение файла
-           Поддерживаются только .h, .cpp, .hpp
-         */
-        const file_name = editor.document.fileName;
-        let check = false;
-        if (file_name.length > 2) {
-            if (file_name.slice(file_name.length - 2, file_name.length) == '.h') {
-                check = true;
-            }
-        }
-        
-        if (file_name.length > 4) {
-            if (file_name.slice(file_name.length - 4, file_name.length) == '.cpp') {
-                check = true;
-            }
-            if (file_name.slice(file_name.length - 4, file_name.length) == '.hpp') {
-                check = true;
-            }
-        }
+        let check = Check(editor);
         
         // Если файл не поддерживается - выходим
         if (!check) {
